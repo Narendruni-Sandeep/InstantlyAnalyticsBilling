@@ -33,13 +33,13 @@ public class BillingController {
     private UserRepository userRepository;
 
     @GetMapping("/billing")
-    public ResponseEntity<?> getBillingDetails(@RequestParam UUID userId) {
-        Optional<User> user = userRepository.findById(userId);
+    public ResponseEntity<?> getBillingDetails(@RequestParam UUID id) {
+        Optional<User> user = userRepository.findById(id);
         if (user.isPresent()) {
             return ResponseEntity.ok(user.get());
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                             .body("User with ID " + userId + " not found");
+                             .body("User with ID " + id + " not found");
     }
 }
 

@@ -13,7 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "billing_history")
+@Table(name = "instantly_billing_history")
 public class BillingHistory {
 
     @Id

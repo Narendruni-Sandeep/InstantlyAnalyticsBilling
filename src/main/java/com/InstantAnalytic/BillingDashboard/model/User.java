@@ -2,18 +2,23 @@ package com.InstantAnalytic.BillingDashboard.model;
 
 
 import jakarta.persistence.*;
+
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Entity
-@Table(name = "users")
+@Table(name = "instantly_user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID userId;
+    private UUID id;
 
     @Column(nullable = false)
-    private String name;
+    private String firstName;
+    
+    @Column(nullable = false)
+    private String lastName;
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -22,23 +27,25 @@ public class User {
     private String subscriptionStatus;
     
     @Column(nullable = false)
-    private String subscriptionBilling;
+    private String subscriptionBillingStatus;
 
 	@Column
-    private java.sql.Date subscriptionStartDate;
+    private Timestamp currentPeriodStart;
 
     @Column
-    private java.sql.Date subscriptionEndDate;
+    private Timestamp currentPeriodEnd;
     
     @Column
     private String customerId;
     
-    public String getSubscriptionBilling() {
-		return subscriptionBilling;
+    
+
+	public String getSubscriptionBillingStatus() {
+		return subscriptionBillingStatus;
 	}
 
-	public void setSubscriptionBilling(String subscriptionBilling) {
-		this.subscriptionBilling = subscriptionBilling;
+	public void setSubscriptionBillingStatus(String subscriptionBillingStatus) {
+		this.subscriptionBillingStatus = subscriptionBillingStatus;
 	}
 
 	public String getCustomerId() {
@@ -49,20 +56,32 @@ public class User {
 		this.customerId = customerId;
 	}
 
-	public UUID getUserId() {
-		return userId;
+	
+
+	
+
+	public UUID getId() {
+		return id;
 	}
 
-	public void setUserId(UUID userId) {
-		this.userId = userId;
+	public void setId(UUID id) {
+		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {
@@ -81,21 +100,25 @@ public class User {
 		this.subscriptionStatus = subscriptionStatus;
 	}
 
-	public java.sql.Date getSubscriptionStartDate() {
-		return subscriptionStartDate;
+	public Timestamp getCurrentPeriodStart() {
+		return currentPeriodStart;
 	}
 
-	public void setSubscriptionStartDate(java.sql.Date subscriptionStartDate) {
-		this.subscriptionStartDate = subscriptionStartDate;
+	public void setCurrentPeriodStart(Timestamp currentPeriodStart) {
+		this.currentPeriodStart = currentPeriodStart;
 	}
 
-	public java.sql.Date getSubscriptionEndDate() {
-		return subscriptionEndDate;
+	public Timestamp getCurrentPeriodEnd() {
+		return currentPeriodEnd;
 	}
 
-	public void setSubscriptionEndDate(java.sql.Date subscriptionEndDate) {
-		this.subscriptionEndDate = subscriptionEndDate;
+	public void setCurrentPeriodEnd(Timestamp currentPeriodEnd) {
+		this.currentPeriodEnd = currentPeriodEnd;
 	}
+
+	
+
+	
 
     // Getters and Setters
 }

@@ -14,7 +14,7 @@ public class PaymentService {
     }
 
     // Method to create a Stripe Checkout Session for subscription
-    public String createCheckoutSession(String userId, String email, String successUrl, String cancelUrl) throws Exception {
+    public String createCheckoutSession(String id, String email, String successUrl, String cancelUrl) throws Exception {
         try {
             // Replace with your actual Stripe Price ID
             String priceId = "price_1QXJndAH2TnRWionN3PCcHKE";
@@ -30,7 +30,7 @@ public class PaymentService {
                         .setQuantity(1L)   // Subscription quantity
                         .build()
                 )
-                .putMetadata("userId", userId) // Attach userId as metadata
+                .putMetadata("userId", id) // Attach userId as metadata
                 .putMetadata("email", email)  // Attach email as metadata
                 .build();
 

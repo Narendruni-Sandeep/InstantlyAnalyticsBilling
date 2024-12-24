@@ -16,8 +16,8 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public Optional<User> findById(UUID userId) {
-        return userRepository.findById(userId);
+    public Optional<User> findById(UUID id) {
+        return userRepository.findById(id);
     }
 
     public User saveUser(User user) {

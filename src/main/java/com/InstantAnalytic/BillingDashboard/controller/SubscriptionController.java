@@ -18,11 +18,11 @@ public class SubscriptionController {
     private PaymentService paymentService;
     
     @PostMapping("/subscribe")
-    public ResponseEntity<String> subscribe(@RequestParam String userId, @RequestParam String email) {
+    public ResponseEntity<String> subscribe(@RequestParam String id, @RequestParam String email) {
         try {
             String successUrl = frontendurl+"/success"; // Customize your success URL
             String cancelUrl = frontendurl+"/cancel"; // Customize your cancel URL
-            String checkoutUrl = paymentService.createCheckoutSession(userId, email, successUrl, cancelUrl);
+            String checkoutUrl = paymentService.createCheckoutSession(id, email, successUrl, cancelUrl);
             return ResponseEntity.ok(checkoutUrl);
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error creating subscription session: " + e.getMessage());

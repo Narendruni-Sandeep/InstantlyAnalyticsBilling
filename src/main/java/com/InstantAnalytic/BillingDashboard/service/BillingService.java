@@ -15,8 +15,8 @@ public class BillingService {
     @Autowired
     private UserRepository userRepository;
 
-    public Optional<User> getUserDetails(UUID userId) {
-        return userRepository.findById(userId);
+    public Optional<User> getUserDetails(UUID id) {
+        return userRepository.findById(id);
     }
 }
 
