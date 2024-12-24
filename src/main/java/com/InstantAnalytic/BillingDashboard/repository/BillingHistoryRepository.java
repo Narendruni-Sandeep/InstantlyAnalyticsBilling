@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.InstantAnalytic.BillingDashboard.model.BillingHistory;
 
 @Repository
-public interface BillingHistoryRepository extends JpaRepository<BillingHistory, Long> {
+public interface BillingHistoryRepository extends JpaRepository<BillingHistory, String> {
 
     // Correct query to match the email column in the BillingHistory table
     @Query("SELECT b FROM BillingHistory b WHERE b.email = :email")
